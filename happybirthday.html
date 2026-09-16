@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dad ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    background: #0a0a1a;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    position: relative;
+  }
+
+  /* Animated gradient background */
+  .bg {
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(0, 180, 255, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(180, 0, 255, 0.12) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255, 200, 0, 0.08) 0%, transparent 50%),
+      linear-gradient(135deg, #0a0a1a 0%, #0f0c29 50%, #1a0a2e 100%);
+    z-index: -2;
+  }
+
+  /* Floating particles */
+  .particles {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00f0ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    animation: float linear infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
+
+  /* Main content */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Glowing title */
+  .title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
+    font-weight: 900;
+    background: linear-gradient(90deg, #00f0ff, #ff00aa, #ffcc00, #00f0ff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s ease infinite;
+    text-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    color: #a0e0ff;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* Advance notice */
+  .advance-badge {
+    display: inline-block;
+    background: rgba(255, 200, 0, 0.15);
+    border: 1px solid #ffcc00;
+    color: #ffcc00;
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(255, 204, 0, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(255, 204, 0, 0.6); }
+  }
+
+  /* Message card */
+  .card {
+    background: rgba(15, 20, 40, 0.7);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 24px;
+    padding: 40px 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 
+      0 0 40px rgba(0, 240, 255, 0.15),
+      inset 0 0 30px rgba(0, 240, 255, 0.05);
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(0, 240, 255, 0.1), transparent 30%);
+    animation: rotate 12s linear infinite;
+  }
+
+  @keyframes rotate {
+    100% { transform: rotate(360deg); }
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .message {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #e0f0ff;
+    margin-bottom: 25px;
+  }
+
+  .message strong {
+    color: #00f0ff;
+  }
+
+  .heart {
+    font-size: 2.5rem;
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.3); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.2); }
+  }
+
+  /* Music player */
+  .music-box {
+    margin: 40px auto;
+    max-width: 380px;
+  }
+
+  .play-btn {
+    background: linear-gradient(135deg, #00f0ff, #0080ff);
+    border: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 16px 40px;
+    border-radius: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 15px;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 240, 255, 0.8);
+  }
+
+  .play-btn.playing {
+    background: linear-gradient(135deg, #ff00aa, #ff0066);
+    box-shadow: 0 0 30px rgba(255, 0, 170, 0.5);
+  }
+
+  .music-note {
+    font-size: 0.9rem;
+    color: #88aacc;
+  }
+
+  /* Cake animation */
+  .cake {
+    font-size: 5rem;
+    margin: 30px 0;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 200, 0, 0.6));
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 50px;
+    font-size: 0.95rem;
+    color: #6688aa;
+  }
+
+  .footer span {
+    color: #00f0ff;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .card { padding: 30px 20px; }
+    .message { font-size: 1.05rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="container">
+    <div class="advance-badge">🎂 Birthday is tomorrow • 17 September</div>
+
+    <h1 class="title">HAPPY BIRTHDAY</h1>
+    <p class="subtitle">To The Best Father In The Universe</p>
+
+    <div class="cake">🎂</div>
+
+    <div class="card">
+      <div class="card-content">
+        <p class="message">
+          Dear <strong>Dad</strong>,<br><br>
+          Even though your special day is tomorrow, I couldn’t wait to celebrate you.<br><br>
+          You are my hero, my guide, and my greatest blessing.  
+          Thank you for every sacrifice, every smile, and every quiet moment of love.<br><br>
+          May this new year of your life bring you endless joy, good health, and all the happiness you deserve.<br><br>
+          I love you more than words can ever say.
+        </p>
+        <div class="heart">💙</div>
+      </div>
+    </div>
+
+    <!-- Music Section -->
+    <div class="music-box">
+      <button class="play-btn" id="playBtn" onclick="toggleMusic()">
+        <span id="btnText">▶ Play Birthday Music</span>
+      </button>
+      <p class="music-note">Happy Birthday Instrumental • Auto-loops</p>
+    </div>
+
+    <div class="footer">
+      Made with <span>♥</span> for the most amazing father<br>
+      See you tomorrow for the real celebration ✨
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.orangefreesounds.com/wp-content/uploads/2016/08/Happy-birthday-instrumental.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Create floating particles
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 60; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (8 + Math.random() * 15) + 's';
+      p.style.animationDelay = Math.random() * 10 + 's';
+      p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+      p.style.opacity = 0.4 + Math.random() * 0.6;
+      // Random color
+      const colors = ['#00f0ff', '#ff00aa', '#ffcc00', '#00ff88'];
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.boxShadow = `0 0 10px ${p.style.background}`;
+      particlesContainer.appendChild(p);
+    }
+
+    // Music control
+    const music = document.getElementById('bgMusic');
+    const playBtn = document.getElementById('playBtn');
+    const btnText = document.getElementById('btnText');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        btnText.textContent = '▶ Play Birthday Music';
+        playBtn.classList.remove('playing');
+      } else {
+        music.play().catch(() => {
+          alert('Please click again to start the music (browser security).');
+        });
+        btnText.textContent = '❚❚ Pause Music';
+        playBtn.classList.add('playing');
+      }
+      isPlaying = !isPlaying;
+    }
+
+    // Try autoplay (will usually fail, but attempt is made)
+    window.addEventListener('load', () => {
+      music.volume = 0.6;
+      music.play().then(() => {
+        isPlaying = true;
+        btnText.textContent = '❚❚ Pause Music';
+        playBtn.classList.add('playing');
+      }).catch(() => {
+        // Autoplay blocked – user must click
+      });
+    });
+  </script>
+</body>
+</html>
